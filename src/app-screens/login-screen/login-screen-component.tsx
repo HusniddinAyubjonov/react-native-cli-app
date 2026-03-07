@@ -1,54 +1,73 @@
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootStackParamList } from '../../app/navigation/types';
+import { Button } from '../../ui-components/button/button-component';
+import { Input } from '../../ui-components/input/input-component';
 import { loginScreenStyles } from './login-screen-styles';
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
+const formInputData = [
+  {
+    label: 'Email',
+    placeholder: 'you@example.com',
+  },
+  {
+    label: 'Password',
+    placeholder: 'Enter password',
+  },
+];
+
 export function LoginScreen({ navigation }: LoginScreenProps) {
   return (
     <SafeAreaView style={loginScreenStyles.screen}>
-      <View style={loginScreenStyles.content}>
-        <View style={loginScreenStyles.card}>
-          <Text style={loginScreenStyles.title}>Login</Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={loginScreenStyles.keyboardAvoiding}
+      >
+        <ScrollView
+          contentContainerStyle={loginScreenStyles.content}
+          keyboardDismissMode="on-drag"
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={loginScreenStyles.card}>
+            <Text style={loginScreenStyles.title}>Login</Text>
 
-          <Text style={loginScreenStyles.formLabel}>Email</Text>
-          <TextInput
-            autoCapitalize="none"
-            keyboardType="email-address"
-            placeholder="you@example.com"
-            placeholderTextColor="#94a3b8"
-            style={loginScreenStyles.input}
-          />
+            {formInputData.map(inputData => (
+              <Input
+                key={inputData.label}
+                label={inputData.label}
+                placeholder={inputData.placeholder}
+              />
+            ))}
 
-          <Text style={loginScreenStyles.formLabel}>Password</Text>
-          <TextInput
-            placeholder="Enter password"
-            placeholderTextColor="#94a3b8"
-            secureTextEntry
-            style={loginScreenStyles.input}
-          />
+            <Button
+              onPress={() => navigation.navigate('Home')}
+              style={loginScreenStyles.primaryButton}
+              title="Sign In"
+            />
 
-          <Pressable
-            onPress={() => navigation.navigate('Home')}
-            style={loginScreenStyles.primaryButton}
-          >
-            <Text style={loginScreenStyles.primaryButtonText}>Sign In</Text>
-          </Pressable>
-
-          <View style={loginScreenStyles.bottomRow}>
-            <Text style={loginScreenStyles.bottomText}>No account? </Text>
-            <Text
-              onPress={() => navigation.navigate('Register')}
-              style={loginScreenStyles.bottomLink}
-            >
-              Create account
-            </Text>
+            <View style={loginScreenStyles.bottomRow}>
+              <Text style={loginScreenStyles.bottomText}>No account? </Text>
+              <Text
+                onPress={() => navigation.navigate('Register')}
+                style={loginScreenStyles.bottomLink}
+              >
+                Create account
+              </Text>
+            </View>
           </View>
-        </View>
-      </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }

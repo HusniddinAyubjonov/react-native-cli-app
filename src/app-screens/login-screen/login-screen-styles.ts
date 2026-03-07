@@ -5,8 +5,11 @@ export const loginScreenStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f3f4f6',
   },
-  content: {
+  keyboardAvoiding: {
     flex: 1,
+  },
+  content: {
+    flexGrow: 1,
     justifyContent: 'center',
     padding: 20,
   },
@@ -28,34 +31,8 @@ export const loginScreenStyles = StyleSheet.create({
     color: '#6b7280',
     marginBottom: 16,
   },
-  formLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#374151',
-    marginBottom: 6,
-  },
-  input: {
-    height: 48,
-    borderWidth: 1,
-    borderColor: '#d1d5db',
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    color: '#111827',
-    marginBottom: 12,
-    backgroundColor: '#ffffff',
-  },
   primaryButton: {
-    height: 48,
-    borderRadius: 8,
-    backgroundColor: '#2563eb',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 6,
-  },
-  primaryButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '700',
   },
   bottomRow: {
     marginTop: 14,

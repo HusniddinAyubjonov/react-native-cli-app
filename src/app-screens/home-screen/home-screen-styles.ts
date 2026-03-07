@@ -6,12 +6,14 @@ export const homeScreenStyles = StyleSheet.create({
     fontWeight: '600',
   },
   tabBar: {
-    height: 84,
-    paddingTop: 10,
-    paddingBottom: 10,
+    height: 78,
+    paddingTop: 8,
+    paddingBottom: 8,
     borderTopWidth: 1,
     borderTopColor: '#e5e7eb',
     backgroundColor: '#ffffff',
+    borderTopLeftRadius: 14,
+    borderTopRightRadius: 14,
   },
   tabBarItem: {
     paddingVertical: 2,

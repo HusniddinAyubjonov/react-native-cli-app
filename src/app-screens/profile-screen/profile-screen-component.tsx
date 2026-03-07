@@ -4,30 +4,39 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { profileTabStyles } from './profile-screen-styles';
+import { Button } from '../../ui-components/button/button-component';
+import { profileScreenStyles } from './profile-screen-styles';
 
-export function ProfileTab() {
+export function ProfileScreen() {
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
   return (
-    <SafeAreaView style={profileTabStyles.scene}>
-      <Text style={profileTabStyles.sceneTitle}>Profile</Text>
-      <View style={profileTabStyles.card}>
-        <Text style={profileTabStyles.cardTitle}>Husniddin Ayubjonov</Text>
-        <Text style={profileTabStyles.cardText}>Role: Frontend Developer</Text>
-        <Text style={profileTabStyles.cardText}>
-          Email: husniddin@example.com
-        </Text>
+    <SafeAreaView style={profileScreenStyles.scene}>
+      <Text style={profileScreenStyles.sceneTitle}>Profile</Text>
+
+      <View style={profileScreenStyles.card}>
+        <View style={profileScreenStyles.avatar}>
+          <Text style={profileScreenStyles.avatarText}>HA</Text>
+        </View>
+        <Text style={profileScreenStyles.cardTitle}>Husniddin Ayubjonov</Text>
+        <Text style={profileScreenStyles.cardMeta}>Frontend Developer</Text>
       </View>
 
-      <Pressable
+      <View style={profileScreenStyles.infoCard}>
+        <Text style={profileScreenStyles.infoLabel}>Email</Text>
+        <Text style={profileScreenStyles.cardText}>husniddin@example.com</Text>
+        <Text style={profileScreenStyles.infoLabel}>Joined</Text>
+        <Text style={profileScreenStyles.cardText}>March 2026</Text>
+      </View>
+
+      <Button
         onPress={() => navigation.navigate('Login')}
-        style={profileTabStyles.logoutButton}
-      >
-        <Text style={profileTabStyles.logoutButtonText}>Log out</Text>
-      </Pressable>
+        style={profileScreenStyles.logoutButton}
+        title="Log out"
+        variant="danger"
+      />
     </SafeAreaView>
   );
 }

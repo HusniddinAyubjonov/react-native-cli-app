@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const profileTabStyles = StyleSheet.create({
+export const profileScreenStyles = StyleSheet.create({
   scene: {
     flex: 1,
     backgroundColor: '#f3f4f6',
@@ -18,7 +18,29 @@ export const profileTabStyles = StyleSheet.create({
     borderColor: '#e5e7eb',
     backgroundColor: '#ffffff',
     padding: 14,
-    gap: 8,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  avatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: '#dbeafe',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  avatarText: {
+    color: '#2563eb',
+    fontSize: 20,
+    fontWeight: '700',
+  },
+  infoCard: {
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+    backgroundColor: '#ffffff',
+    padding: 14,
   },
   cardTitle: {
     color: '#111827',
@@ -30,17 +52,18 @@ export const profileTabStyles = StyleSheet.create({
     color: '#4b5563',
     fontSize: 15,
   },
+  cardMeta: {
+    color: '#6b7280',
+    fontSize: 13,
+  },
+  infoLabel: {
+    color: '#6b7280',
+    fontSize: 12,
+    marginTop: 6,
+    marginBottom: 2,
+    textTransform: 'uppercase',
+  },
   logoutButton: {
     marginTop: 16,
-    height: 48,
-    borderRadius: 8,
-    backgroundColor: '#ef4444',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoutButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '700',
   },
 });
