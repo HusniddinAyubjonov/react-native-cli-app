@@ -17,7 +17,10 @@ export function ChatScreen() {
           <Text style={chatScreenStyles.badge}>2</Text>
         </View>
         <Text style={chatScreenStyles.cardText}>
-          Can you check the new design?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt,
+          sint iste qui omnis nisi officiis quam in vel repellat saepe eaque
+          iure. Numquam amet repellendus eveniet. Saepe accusamus similique
+          perferendis.
         </Text>
         <Text style={chatScreenStyles.cardMeta}>2 min ago</Text>
       </View>
@@ -28,7 +31,10 @@ export function ChatScreen() {
           <Text style={chatScreenStyles.badgeMuted}>Read</Text>
         </View>
         <Text style={chatScreenStyles.cardText}>
-          Build is green on iOS and Android.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim
+          necessitatibus, tempora corporis soluta ullam nobis. Ut aliquid
+          molestiae cupiditate? Saepe sunt quibusdam quis consequuntur rem. Quae
+          quaerat id ut ipsam.
         </Text>
         <Text style={chatScreenStyles.cardMeta}>10 min ago</Text>
       </View>
