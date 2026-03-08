@@ -15,7 +15,7 @@ export function TasksScreen() {
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [tasks, setTasks] = useState<TaskItem[]>([
     { id: '1', title: '1 Hello World' },
-    { id: '2', title: '0 Hello World' },
+    { id: '2', title: '2 Hello World' },
   ]);
 
   const isEditing = editingTaskId !== null;

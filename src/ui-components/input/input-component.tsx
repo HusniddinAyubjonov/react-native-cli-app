@@ -13,7 +13,7 @@ export function Input({
 }: FormInputProps) {
   return (
     <>
-      {label ? <Text style={formInputStyles.label}>{label}</Text> : null}
+      {label && <Text style={formInputStyles.label}>{label}</Text>}
       <TextInput
         placeholderTextColor={placeholderTextColor}
         style={formInputStyles.input}
