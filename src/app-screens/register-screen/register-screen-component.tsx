@@ -53,7 +53,7 @@ export function RegisterScreen({ navigation }: RegisterScreenProps) {
           <View style={registerScreenStyles.card}>
             <Text style={registerScreenStyles.title}>Register</Text>
             <Text style={registerScreenStyles.subtitle}>
-              Create account for demo app.
+              Create account.
             </Text>
 
             {formInputData.map(inputData => (
