@@ -28,6 +28,7 @@ const NativeTab = createNativeBottomTabNavigator<HomeTabParamList>();
 
 const iosMajorVersion =
   Platform.OS === 'ios' ? Number(String(Platform.Version).split('.')[0]) : 0;
+const isIos26OrNewer = Platform.OS === 'ios' && iosMajorVersion >= 26;
 
 type AndroidTabIconProps = {
   color: string;
@@ -139,44 +140,15 @@ function LottieNativeTabIcon({ focused }: NativeTabIconProps) {
   };
 }
 
-let iosScreenOptions: NativeBottomTabNavigationOptions = {
+const iosLiquidGlassScreenOptions: NativeBottomTabNavigationOptions = {
   headerShown: false,
   tabBarActiveTintColor: homeColors.active,
   tabBarLabelStyle: homeStyles.tabBarLabel,
+  tabBarControllerMode: 'auto',
+  tabBarMinimizeBehavior: 'onScrollDown',
 };
 
-switch (true) {
-  case iosMajorVersion >= 26:
-    iosScreenOptions = {
-      ...iosScreenOptions,
-      tabBarControllerMode: 'auto',
-      tabBarMinimizeBehavior: 'onScrollDown',
-    };
-    break;
-  case iosMajorVersion === 18:
-    iosScreenOptions = {
-      ...iosScreenOptions,
-      tabBarBlurEffect: 'systemMaterial',
-      tabBarStyle: homeStyles.nativeTabBar,
-      tabBarControllerMode: 'auto',
-    };
-    break;
-  case iosMajorVersion < 18:
-    iosScreenOptions = {
-      ...iosScreenOptions,
-      tabBarBlurEffect: 'systemMaterial',
-      tabBarStyle: homeStyles.nativeTabBar,
-    };
-    break;
-  default:
-    iosScreenOptions = {
-      ...iosScreenOptions,
-      tabBarControllerMode: 'auto',
-    };
-    break;
-}
-
-const androidScreenOptions = {
+const regularScreenOptions = {
   headerShown: false,
   tabBarActiveTintColor: homeColors.active,
   tabBarInactiveTintColor: homeColors.inactive,
@@ -190,11 +162,11 @@ const androidScreenOptions = {
 };
 
 export function Home() {
-  if (Platform.OS === 'ios') {
+  if (isIos26OrNewer) {
     return (
       <NativeTab.Navigator
         initialRouteName="Tasks"
-        screenOptions={iosScreenOptions}
+        screenOptions={iosLiquidGlassScreenOptions}
       >
         <NativeTab.Screen
           name="Tasks"
@@ -237,7 +209,10 @@ export function Home() {
   }
 
   return (
-    <Tab.Navigator initialRouteName="Tasks" screenOptions={androidScreenOptions}>
+    <Tab.Navigator
+      initialRouteName="Tasks"
+      screenOptions={regularScreenOptions}
+    >
       <Tab.Screen
         name="Tasks"
         component={Tasks}

@@ -8,10 +8,6 @@ export const homeStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
   },
-  nativeTabBar: {
-    backgroundColor: 'rgba(255, 255, 255, 0.72)',
-    shadowColor: 'rgba(15, 23, 42, 0.12)',
-  },
   tabBar: {
     height: 78,
     paddingTop: 8,
