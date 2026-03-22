@@ -11,7 +11,8 @@ export function RootNavigator() {
   return (
     <Stack.Navigator
       initialRouteName="SignIn"
-      screenOptions={{ headerShown: false }}>
+      screenOptions={{ headerShown: false, animation: 'simple_push' }}
+    >
       <Stack.Screen component={SignIn} name="SignIn" />
       <Stack.Screen component={SignUp} name="SignUp" />
       <Stack.Screen component={Home} name="Home" />
