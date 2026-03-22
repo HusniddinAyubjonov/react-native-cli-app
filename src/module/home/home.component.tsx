@@ -23,13 +23,6 @@ type HomeTabParamList = {
   Profile: undefined;
 };
 
-const Tab = createBottomTabNavigator<HomeTabParamList>();
-const NativeTab = createNativeBottomTabNavigator<HomeTabParamList>();
-
-const iosMajorVersion =
-  Platform.OS === 'ios' ? Number(String(Platform.Version).split('.')[0]) : 0;
-const isIos26OrNewer = Platform.OS === 'ios' && iosMajorVersion >= 26;
-
 type AndroidTabIconProps = {
   color: string;
   size: number;
@@ -39,6 +32,13 @@ type AndroidTabIconProps = {
 type NativeTabIconProps = {
   focused: boolean;
 };
+
+const Tab = createBottomTabNavigator<HomeTabParamList>();
+const NativeTab = createNativeBottomTabNavigator<HomeTabParamList>();
+
+const iosMajorVersion =
+  Platform.OS === 'ios' ? Number(String(Platform.Version).split('.')[0]) : 0;
+const isIos26OrNewer = Platform.OS === 'ios' && iosMajorVersion >= 26;
 
 function AndroidTabBarButton(props: BottomTabBarButtonProps) {
   return <PlatformPressable {...props} pressColor={homeColors.ripple} />;
