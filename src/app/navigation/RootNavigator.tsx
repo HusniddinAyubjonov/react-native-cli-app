@@ -5,17 +5,17 @@ import { SignIn } from '../../module/signin/signin.component';
 import { SignUp } from '../../module/signup/signup.component';
 import { RootStackParamList } from './types';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
 
 export function RootNavigator() {
   return (
-    <Stack.Navigator
+    <Navigator
       initialRouteName="SignIn"
       screenOptions={{ headerShown: false, animation: 'simple_push' }}
     >
-      <Stack.Screen component={SignIn} name="SignIn" />
-      <Stack.Screen component={SignUp} name="SignUp" />
-      <Stack.Screen component={Home} name="Home" />
-    </Stack.Navigator>
+      <Screen component={SignIn} name="SignIn" />
+      <Screen component={SignUp} name="SignUp" />
+      <Screen component={Home} name="Home" />
+    </Navigator>
   );
 }
