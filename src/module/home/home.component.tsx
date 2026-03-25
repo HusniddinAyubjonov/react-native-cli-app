@@ -1,10 +1,9 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Pressable } from 'react-native';
 import {
   createBottomTabNavigator,
   type BottomTabBarButtonProps,
 } from '@react-navigation/bottom-tabs';
-import { PlatformPressable } from '@react-navigation/elements';
 import {
   createNativeBottomTabNavigator,
   type NativeBottomTabNavigationOptions,
@@ -40,8 +39,12 @@ const iosMajorVersion =
   Platform.OS === 'ios' ? Number(String(Platform.Version).split('.')[0]) : 0;
 const isIos26OrNewer = Platform.OS === 'ios' && iosMajorVersion >= 26;
 
-function AndroidTabBarButton(props: BottomTabBarButtonProps) {
-  return <PlatformPressable {...props} pressColor={homeColors.ripple} />;
+function AndroidTabBarButton({
+  href: _href,
+  ref: _ref,
+  ...props
+}: BottomTabBarButtonProps) {
+  return <Pressable {...props} android_ripple={{ color: homeColors.ripple }} />;
 }
 
 function TasksAndroidTabIcon({ color, size, focused }: AndroidTabIconProps) {

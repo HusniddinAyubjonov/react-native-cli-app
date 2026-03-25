@@ -48,6 +48,9 @@ export const tasksStyles = StyleSheet.create({
   cancelButtonText: {
     color: '#374151',
   },
+  list: {
+    flex: 1,
+  },
   listContent: {
     paddingBottom: 20,
   },
@@ -95,5 +98,16 @@ export const tasksStyles = StyleSheet.create({
     color: '#b91c1c',
     fontSize: 13,
     fontWeight: '600',
+  },
+  bannerContainer: {
+    alignItems: 'center',
+    paddingTop: 8,
+  },
+  bannerLabel: {
+    alignSelf: 'flex-start',
+    color: '#6b7280',
+    fontSize: 12,
+    fontWeight: '600',
+    marginBottom: 6,
   },
 });

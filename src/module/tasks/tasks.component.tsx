@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { bannerAdUnitId } from '../../app/ads/googleMobileAds';
 import { Button } from '../../ui-components/button/button.component';
 import { Input } from '../../ui-components/input/input.component';
 import { tasksStyles } from './tasks.styles';
@@ -9,6 +11,18 @@ type TaskItem = {
   id: string;
   title: string;
 };
+
+function TasksBannerAd() {
+  return (
+    <View style={tasksStyles.bannerContainer}>
+      <Text style={tasksStyles.bannerLabel}>Реклама</Text>
+      <BannerAd
+        unitId={bannerAdUnitId}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+      />
+    </View>
+  );
+}
 
 export function Tasks() {
   const [taskText, setTaskText] = useState('');
@@ -103,6 +117,7 @@ export function Tasks() {
       </View>
 
       <ScrollView
+        style={tasksStyles.list}
         contentContainerStyle={tasksStyles.listContent}
         showsVerticalScrollIndicator={false}
       >
@@ -128,6 +143,8 @@ export function Tasks() {
           </View>
         ))}
       </ScrollView>
+
+      <TasksBannerAd />
     </SafeAreaView>
   );
 }
