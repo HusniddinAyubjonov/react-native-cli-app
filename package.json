@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "ios": "react-native run-ios",
-    "ios 17": "react-native run-ios --simulator=\"iPhone 17 Pro Max\"",
     "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "lint": "eslint .",
     "test": "jest"
   },
