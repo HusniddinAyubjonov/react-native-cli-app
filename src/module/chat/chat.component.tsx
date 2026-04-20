@@ -110,11 +110,7 @@ function ChatHeaderLeft() {
       onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
       style={chatStyles.headerAction}
     >
-      <Ionicons
-        color={chatColors.headerTint}
-        name="menu-outline"
-        size={26}
-      />
+      <Ionicons color={chatColors.headerTint} name="menu-outline" size={26} />
     </Pressable>
   );
 }
