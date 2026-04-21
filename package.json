@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "ios": "react-native run-ios",
-    "android": "react-native run-android",
+    "test": "jest",
     "lint": "eslint .",
-    "test": "jest"
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "android": "react-native run-android"
   },
   "dependencies": {
     "@react-native-vector-icons/ionicons": "12.4.1",
