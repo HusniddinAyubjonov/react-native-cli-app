@@ -199,8 +199,8 @@ export function Home() {
           name="Lottie"
           component={Lottie}
           options={{
-            title: 'Lottie',
-            tabBarLabel: 'Lottie',
+            title: 'Flow 2',
+            tabBarLabel: 'Flow 2',
             tabBarIcon: LottieNativeTabIcon,
           }}
         />
@@ -241,7 +241,7 @@ export function Home() {
         name="Lottie"
         component={Lottie}
         options={{
-          title: 'Lottie',
+          title: 'Flow 2',
           tabBarIcon: LottieAndroidTabIcon,
         }}
       />
