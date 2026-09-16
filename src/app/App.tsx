@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar, StyleSheet } from 'react-native';
+import { LogBox, StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootNavigator } from './navigation/RootNavigator';
+
+LogBox.ignoreLogs([
+  '[Reanimated] dependencies should only be used in web implementation.',
+]);
 
 function App() {
   return (
